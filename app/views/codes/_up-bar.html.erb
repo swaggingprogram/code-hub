@@ -5,12 +5,21 @@
   <div class= "text">
     みんなで共有し合うプログラミングサイト！
     <div class ="buttons">
+      <% if user_signed_in? %>
       <div class="button-left">
-        <a href="#">ログイン</a>
+        <%= link_to current_user.nickname, "#", class: "user-nickname" %>
       </div>
       <div class="button-right">
-        <a href="#">新規登録</a>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
       </div>
+      <% else %>
+      <div class="button-left">
+        <%= link_to 'ログイン', new_user_session_path, class: "login" %>
+      </div>
+      <div class="button-right">
+        <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>
