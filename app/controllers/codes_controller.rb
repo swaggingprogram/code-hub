@@ -18,6 +18,16 @@ class CodesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+  end
+
+  def show
+    @code = Code.find(params[:id])
+  end
+
   private
   def code_params
     params.require(:code).permit(:title, :codetext, :category_id, :genre_id).merge(user_id: current_user.id)
