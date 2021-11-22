@@ -1,0 +1,55 @@
+<div class= "new-wrapper">
+  <%= form_with model: @code, url: codes_path, class: 'registration-main', local: true do |f| %>
+  <div class= "new-form">
+    <div class= "new-header">
+      <h1 class= "new-head-text">
+        New Code 
+      </h1>
+    </div>
+
+    <%= render 'shared/error_messages', model: f.object, locals: {model: @code} %>
+
+    <div class="code-group">
+      <div class="form-text-wrap">
+        <label class="form-text">タイトル</label>
+      </div>
+      <%= f.text_area :title, class:"input-default", id:"title", placeholder:"例) コード名", maxlength:"20" %>
+    </div>
+    <div class="code-group">
+      <div class="form-text-wrap">
+        <label class="form-text">コード</label>
+      </div>
+      <%= f.text_area :codetext, class:"code-space", id:"code", placeholder:" マークダウンで記述できます
+ 
+ ```ruby
+ 
+ ```" %> 
+    </div>
+    <div class="code-group">
+      <div class="form-text-wrap">
+        <label class="form-text">画像</label>
+      </div>
+      <%= f.file_field :image %> 
+    </div>
+    <div class = "category-space">
+      <div class="code-group">
+        <div class="form-text-wrap">
+          <label class="form-text">カテゴリー</label>
+        </div>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box"}) %>
+      </div>
+      <div class="code-group">
+        <div class="form-text-wrap">
+          <label class="form-text">ジャンル</label>
+        </div>
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box"}) %>
+      </div>
+    </div>
+    <div class="new-btn">
+      <%= f.submit "投稿する" ,class:"new-btn" %>
+    </div>
+  </div>
+  <% end %>
+  <div class="new-right">
+  </div>
+</div>
