@@ -1,0 +1,56 @@
+<div class="show-wrapper">
+  <div class="show-code">
+    <div class= "show-header">
+      <h1 class= "show-head-text">
+        Your Code
+      </h1>
+    </div>
+    <div class="code-show">
+      <p><%= markdown(@code.codetext).html_safe %><p>
+    </div>
+    <div class= "show-settings">
+      <div class="show-buttons">
+        <% if user_signed_in? && @code.user.id == current_user.id %>
+        <%= link_to "編集する", edit_code_path, method: :get, class: "edit-btn" %>
+        <%= link_to "削除する", code_path, method: :delete, class: "edit-btn" %>
+        <% end %>
+        <%= link_to "もどる", root_path %>
+      </div>
+    </div>
+    <div class= "show-info">
+      <div class="title-show">
+        <div class="show-text">
+          <label class="form-text">タイトル</label>
+        </div>
+        <div class="form-text-wrap">
+          <%= @code.title %>
+        </div>
+      </div>
+      <% if @code.image.present? %>
+      <div class="image-show">
+        <div class="show-text">
+          <label class="form-text">画像</label>
+        </div>
+        <div class="form-text-wrap">
+          <%= @code.image %>
+        </div>
+      </div>
+      <% end %>
+      <div class="category-show">
+        <div class="show-text">
+          <label class="form-text">カテゴリー</label>
+        </div>
+        <div class="form-text-wrap">
+          <%= @code.category_id %>
+        </div>
+      </div>
+      <div class="genre-show">
+        <div class="show-text">
+          <label class="form-text">ジャンル</label>
+        </div>
+        <div class="form-text-wrap">
+          <%= @code.genre_id %>
+        </div>
+      </div>
+    </div>  
+</div>
