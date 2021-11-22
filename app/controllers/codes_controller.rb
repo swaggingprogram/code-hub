@@ -1,4 +1,6 @@
 class CodesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  
   def index
     @codes = Code.all.order("created_at DESC")
   end
@@ -8,7 +10,7 @@ class CodesController < ApplicationController
   end
 
   def create
-    @code = Item.new(code_params)
+    @code = Code.new(code_params)
     if @code.save
       redirect_to root_path
     else
