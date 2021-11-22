@@ -10,8 +10,10 @@
     </div>
     <div class= "show-settings">
       <div class="show-buttons">
+        <% if user_signed_in? && @code.user.id == current_user.id %>
         <%= link_to "編集する", edit_code_path, method: :get, class: "edit-btn" %>
         <%= link_to "削除する", code_path, method: :delete, class: "edit-btn" %>
+        <% end %>
         <%= link_to "もどる", root_path %>
       </div>
     </div>
