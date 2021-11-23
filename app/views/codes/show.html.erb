@@ -11,46 +11,64 @@
     <div class= "show-settings">
       <div class="show-buttons">
         <% if user_signed_in? && @code.user.id == current_user.id %>
-        <%= link_to "編集する", edit_code_path, method: :get, class: "edit-btn" %>
-        <%= link_to "削除する", code_path, method: :delete, class: "edit-btn" %>
+        <%= link_to(edit_code_path(@code), class: "edit-btn") do %>
+        <div class ="btn">
+          編集する
+        </div>
         <% end %>
-        <%= link_to "もどる", root_path %>
+        <%= link_to(code_path(@code), method: :delete, class: "delete-btn") do %>
+        <div class ="btn">
+          削除する
+        </div>
+        <% end %>
+        <% end %>
+        <%= link_to(root_path, class: "return-btn") do %>
+        <div class ="btn">
+          戻る
+        </div>
+        <% end %>
+        <div class ="btn">
+        </div>
+        <div class ="btn">
+        </div>
       </div>
     </div>
     <div class= "show-info">
-      <div class="title-show">
-        <div class="show-text">
-          <label class="form-text">タイトル</label>
-        </div>
-        <div class="form-text-wrap">
-          <%= @code.title %>
-        </div>
+       <div class="info-show">
+          <%= @code.user.nickname %>
       </div>
-      <% if @code.image.present? %>
-      <div class="image-show">
-        <div class="show-text">
-          <label class="form-text">画像</label>
-        </div>
-        <div class="form-text-wrap">
-          <%= @code.image %>
+      <div class="info-show">
+          <%= @code.category.name %>
+      </div>
+      <div class="info-show">
+          <%= @code.genre.name %>
+      </div>
+    </div>  
+  </div>
+  <div class="show-comment">
+   <div class="comment-area">
+     <% @comments.each do |comment| %>
+     <div class="comments-wrap">
+       <div class="comments-name">
+         <%= comment.user.nickname %>
+       </div>
+        <div class="comments-content">
+          <%= markdown(comment.concept).html_safe %>
         </div>
       </div>
       <% end %>
-      <div class="category-show">
-        <div class="show-text">
-          <label class="form-text">カテゴリー</label>
+   </div>
+   <div class="comment-form">
+    <% if user_signed_in? %>
+      <%= form_with(model: [@code, @comment], local: true) do |f| %>
+        <div class="show-field">
+          <%= f.text_area :concept, class: "comment-content", value: @template %>
+          <div class="actions">
+            <%= f.submit "送信する", class: "form-btn"  %>
+          </div>
         </div>
-        <div class="form-text-wrap">
-          <%= @code.category_id %>
-        </div>
-      </div>
-      <div class="genre-show">
-        <div class="show-text">
-          <label class="form-text">ジャンル</label>
-        </div>
-        <div class="form-text-wrap">
-          <%= @code.genre_id %>
-        </div>
-      </div>
-    </div>  
+      <% end %>
+    <% end %>
+    </div>
+  </div>
 </div>
