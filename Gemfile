@@ -54,6 +54,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
-gem 'coderay'
 gem 'redcarpet'
 gem 'active_hash'
+gem 'rouge'
