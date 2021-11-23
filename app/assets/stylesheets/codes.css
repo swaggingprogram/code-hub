@@ -103,12 +103,13 @@
   overflow: scroll;
   font-size: 30px;
   padding-left: 10px;
-  background-color: #364549;
+  background-color: #1b1d1e;
   color: white;
 }
 
 .code-link {
   text-decoration: none;
+  color: white;
 }
 
 .code-text {
@@ -217,7 +218,7 @@
 }
 
 .code-show {
-  background-color: white;
+  background-color: #1b1d1e;
   border: 1px solid black;
   width: 800px;
   height: 400px;

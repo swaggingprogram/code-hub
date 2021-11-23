@@ -19,9 +19,24 @@ class CodesController < ApplicationController
   end
 
   def edit
+    @code = Code.find(params[:id])
   end
 
   def update
+    @code = Code.find(params[:id])
+    if @code.update(code_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    code = Code.find(params[:id])
+    if code.user.id == current_user.id
+      code.destroy
+      redirect_to root_path
+    end
   end
 
   def show
