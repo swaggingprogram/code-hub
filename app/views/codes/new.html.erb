@@ -19,11 +19,7 @@
       <div class="form-text-wrap">
         <label class="form-text">コード</label>
       </div>
-      <%= f.text_area :codetext, class:"code-space", id:"code", placeholder:" マークダウンで記述できます
- 
- ```ruby
- 
- ```" %> 
+      <%= f.text_area :codetext, class:"code-space", id:"code", value: @template %> 
     </div>
     <div class="code-group">
       <div class="form-text-wrap">

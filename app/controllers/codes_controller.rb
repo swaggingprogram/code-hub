@@ -1,5 +1,6 @@
 class CodesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :template, only: [:show, :new]
   
   def index
     @codes = Code.all.order("created_at DESC")
@@ -41,10 +42,18 @@ class CodesController < ApplicationController
 
   def show
     @code = Code.find(params[:id])
+    @comment = Comment.new
+    @comments = @code.comments.includes(:user)
   end
 
   private
   def code_params
     params.require(:code).permit(:title, :codetext, :category_id, :genre_id).merge(user_id: current_user.id)
+  end
+
+  def template
+    @template = " ```マークダウンで記入できます
+    
+  ```"
   end
 end

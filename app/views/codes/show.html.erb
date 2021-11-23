@@ -11,12 +11,12 @@
     <div class= "show-settings">
       <div class="show-buttons">
         <% if user_signed_in? && @code.user.id == current_user.id %>
-        <%= link_to(edit_code_path, method: :get, class: "edit-btn") do %>
+        <%= link_to(edit_code_path(@code), class: "edit-btn") do %>
         <div class ="btn">
           編集する
         </div>
         <% end %>
-        <%= link_to(code_path, method: :delete, class: "delete-btn") do %>
+        <%= link_to(code_path(@code), method: :delete, class: "delete-btn") do %>
         <div class ="btn">
           削除する
         </div>
@@ -47,8 +47,28 @@
   </div>
   <div class="show-comment">
    <div class="comment-area">
+     <% @comments.each do |comment| %>
+     <div class="comments-wrap">
+       <div class="comments-name">
+         <%= comment.user.nickname %>
+       </div>
+        <div class="comments-content">
+          <%= markdown(comment.concept).html_safe %>
+        </div>
+      </div>
+      <% end %>
    </div>
    <div class="comment-form">
-   </div>
+    <% if user_signed_in? %>
+      <%= form_with(model: [@code, @comment], local: true) do |f| %>
+        <div class="show-field">
+          <%= f.text_area :concept, class: "comment-content", value: @template %>
+          <div class="actions">
+            <%= f.submit "送信する", class: "form-btn"  %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    </div>
   </div>
 </div>
