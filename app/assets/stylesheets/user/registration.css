@@ -45,6 +45,8 @@
   background-color: #272822;
   border: 2px dashed #999999;
   height: 50px;
+  color: white;
+  font-size: 20px;
 }
 
 .form-text-wrap {
