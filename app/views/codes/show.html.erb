@@ -6,23 +6,23 @@
       </h1>
     </div>
     <div class="code-show">
-      <p><%= markdown(@code.codetext).html_safe %><p>
+      <%= markdown(@code.codetext).html_safe %>
     </div>
     <div class= "show-settings">
       <div class="show-buttons">
         <% if user_signed_in? && @code.user.id == current_user.id %>
         <%= link_to(edit_code_path(@code), class: "edit-btn") do %>
         <div class ="btn">
-          編集する
+          編集
         </div>
         <% end %>
         <%= link_to(code_path(@code), method: :delete, class: "delete-btn") do %>
         <div class ="btn">
-          削除する
+          削除
         </div>
         <% end %>
         <% end %>
-        <%= link_to(root_path, class: "return-btn") do %>
+        <%= link_to(root_path, class: "show-return") do %>
         <div class ="btn">
           戻る
         </div>
@@ -40,7 +40,7 @@
       <div class="info-show">
           <%= @code.category.name %>
       </div>
-      <div class="info-show">
+      <div class="info-show-kana">
           <%= @code.genre.name %>
       </div>
     </div>  
