@@ -11,33 +11,32 @@
 
     <div class="form-group">
       <div class="form-text-wrap">
-        <label class="form-text">ニックネーム</label>
+        <label class="registration-text">ニックネーム</label>
       </div>
-      <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) programmer", maxlength:"20" %>
+      <%= f.text_area :nickname, class:"input-register", id:"nickname", placeholder:"例) programmer", maxlength:"20" %>
     </div>
     <div class="form-group">
       <div class="form-text-wrap">
-        <label class="form-text">メールアドレス</label>
+        <label class="registration-text">メールアドレス</label>
       </div>
-      <%= f.text_area :email, class:"input-default", id:"email", placeholder:"例) 〇〇@gmail,com", autofocus: true %>
+      <%= f.text_area :email, class:"input-register", id:"email", placeholder:"例) 〇〇@gmail,com", autofocus: true %>
     </div>
     <div class="form-group">
       <div class='form-text-wrap'>
-        <label class="form-text">パスワード</label>
+        <label class="registration-text">パスワード</label>
         <span class="indispensable">必須</span>
       </div>
-      <%= f.password_field :password, class:"input-default", id:"password", placeholder:"6文字以上の半角英数字" %>
-      <p class='info-text'>※英字と数字の両方を含めて設定してください</p>
+      <%= f.password_field :password, class:"input-register", id:"password", placeholder:"6文字以上の半角英数字" %>
     </div>
     <div class="form-group">
       <div class='form-text-wrap'>
-        <label class="form-text">パスワード(確認)</label>
+        <label class="registration-text">パスワード(確認)</label>
         <span class="indispensable">必須</span>
       </div>
-      <%= f.password_field :password_confirmation, class:"input-default", id:"password-confirmation", placeholder:"同じパスワードを入力して下さい" %>
+      <%= f.password_field :password_confirmation, class:"input-register", id:"password-confirmation", placeholder:"同じパスワードを入力して下さい" %>
     </div>
     <div class='register-btn'>
-      <%= f.submit "会員登録" ,class:"register-red-btn" %>
+      <%= f.submit "会員登録" ,class:"registration-btn" %>
     </div>
   </div>
   <% end %>

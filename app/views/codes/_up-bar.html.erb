@@ -1,26 +1,39 @@
 <div class= "left-up">
   <div class= "title">
-    Code Hub 
+    Code-Hub 
   </div>
-  <div class= "text">
-    みんなで共有し合うプログラミングサイト！
-    <div class ="buttons">
-      <% if user_signed_in? %>
-      <div class="button-left">
-        <%= link_to current_user.nickname, "#", class: "user-nickname" %>
-      </div>
-      <div class="button-right">
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
-      </div>
-      <% else %>
-      <div class="button-left">
-        <%= link_to 'ログイン', new_user_session_path, class: "login" %>
-      </div>
-      <div class="button-right">
-        <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>
-      </div>
-      <% end %>
+  <div class= "texts">
+    <div class="used-program">
+      このwebサイトは<br>HTML/CSS, Ruby on Rails, javascriptで作られています
     </div>
+    <div class="author-info">
+      Made by Hajime Ogura
+    </div>
+  </div>
+  <div class ="buttons">
+    <% if user_signed_in? %>
+    <%= link_to("#", class: "button") do %>
+    <div class="button-left">
+      Welcome Back!! <%= current_user.nickname %>!!
+    </div>
+    <% end %>
+    <%= link_to(destroy_user_session_path, method: :delete, class: "button") do %>
+    <div class="button-right">
+      ログアウトする
+    </div>
+    <% end %>
+    <% else %>
+    <%= link_to(new_user_session_path, class: "button") do %>
+    <div class="button-left">
+      ログインする
+    </div>
+    <% end %>
+    <%= link_to(new_user_registration_path, class: "button") do %>
+    <div class="button-right">
+      新規登録はこちらから
+    </div>
+    <% end %>
+    <% end %>
   </div>
 </div>
 <div class= "right-up">

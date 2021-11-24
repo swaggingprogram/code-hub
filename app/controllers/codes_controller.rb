@@ -54,6 +54,6 @@ class CodesController < ApplicationController
   def template
     @template = " ```マークダウンで記入できます
     
-  ```"
+ ```"
   end
 end
