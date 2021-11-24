@@ -3,47 +3,44 @@
   <div class= "new-form">
     <div class= "new-header">
       <h1 class= "new-head-text">
-        New Code 
+        Your Code
       </h1>
     </div>
+    <div class="new-code-form">
+      <%= f.text_area :codetext, class:"new-space", value: @template %> 
+    </div>
+    <div class="new-choices">
 
-    <%= render 'shared/error_messages', model: f.object, locals: {model: @code} %>
+        <%= render 'shared/error_messages', model: f.object, locals: {model: @code} %>
 
-    <div class="code-group">
-      <div class="form-text-wrap">
-        <label class="form-text">タイトル</label>
-      </div>
-      <%= f.text_area :title, class:"input-default", id:"title", placeholder:"例) コード名", maxlength:"20" %>
-    </div>
-    <div class="code-group">
-      <div class="form-text-wrap">
-        <label class="form-text">コード</label>
-      </div>
-      <%= f.text_area :codetext, class:"code-space", id:"code", value: @template %> 
-    </div>
-    <div class="code-group">
-      <div class="form-text-wrap">
-        <label class="form-text">画像</label>
-      </div>
-      <%= f.file_field :image %> 
-    </div>
-    <div class = "category-space">
-      <div class="code-group">
-        <div class="form-text-wrap">
-          <label class="form-text">カテゴリー</label>
+      <div class="new-categories">
+        <div class="new-title">
+          <label class="new-text">タイトル</label>
+           <%= f.text_area :title, class:"input-title", placeholder:"例) コード名", maxlength:"20" %>
         </div>
-        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box"}) %>
-      </div>
-      <div class="code-group">
-        <div class="form-text-wrap">
-          <label class="form-text">ジャンル</label>
+        <div class="new-select">
+          <div class="new-category">
+            <label class="new-text">カテゴリー</label>
+            <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box"}) %>
+          </div>
+          <div class="new-genre">
+            <label class="new-text">ジャンル</label>
+            <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box"}) %>
+          </div>
         </div>
-        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box"}) %>
+      </div>
+      <div class="new-button">
+        <%= link_to(root_path, class: "return-link") do %>
+        <div class ="return-btn">
+          戻る
+        </div>
+        <% end %>
+        <div class="new-btn">
+        <%= f.submit "NEW", class:"new-smt" %>
+        </div>
       </div>
     </div>
-    <div class="new-btn">
-      <%= f.submit "投稿する" ,class:"new-btn" %>
-    </div>
+
   </div>
   <% end %>
   <div class="new-right">
