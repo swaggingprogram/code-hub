@@ -36,6 +36,8 @@
   background-color: #272822;
   border: 2px dashed #999999;
   height: 50px;
+  color: white;
+  font-size: 20px;
 }
 
 .login-btn {
@@ -49,6 +51,7 @@
   font-family: 'DotGothic16', sans-serif;
   font-size: 20px;
   color: #999999;
+  margin-top: 40px;
 }
 
 .login-flash-message {
