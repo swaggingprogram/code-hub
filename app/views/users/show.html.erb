@@ -2,10 +2,20 @@
   <div class="user-info">
     <div class= "show-header">
       <h1 class= "show-head-text">
-        <%= @user.nickname %> のマイページ
+        <%= @user.nickname %>のマイページ
       </h1>
     </div>
     <div class= "personal-info">
+      <div class="personal-info-box">
+        ユーザー名： <%= @user.nickname %>
+      </div>
+      <div class="introduction">
+      <% if @user.introduction.blank? %>
+        ユーザー編集フォームで<br>自己紹介を記入してください
+      <% else %>
+        <%= @user.introduction %>
+      <% end %>
+      </div>
     </div>
     <div class="user-choices">
       <div class="user-choice">
