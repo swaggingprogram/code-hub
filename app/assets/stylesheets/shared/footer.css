@@ -1,0 +1,23 @@
+.fotter-text-wrap {
+  width: 100%;
+  min-width: 800px;
+  height: 200px;
+  background-color: #00303e;
+  border-top: 2px dashed #999999;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer-button {
+  min-width: 200px;
+  height: 100px;
+  border: 2px dashed #999999;
+  color: #999999;
+  font-size: 25px;
+  text-align: center;
+  padding: 40px 20px 0 ;
+  font-weight: bolder;
+  font-family: 'Press Start 2P', cursive, 'DotGothic16', sans-serif;
+}

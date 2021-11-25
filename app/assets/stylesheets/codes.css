@@ -240,7 +240,7 @@
 
 .new-text {
   font-size: 20px;
-  color: white;
+  color: #999999;
   font-family: 'DotGothic16', sans-serif;
   display: block;
   margin-bottom: 10px;
@@ -258,13 +258,17 @@
   border: 2px dashed #999999;
   height: 50px;
   width: 300px;
+  color: white;
+  font-family: 'Press Start 2P', cursive, 'DotGothic16', sans-serif;
 }
 
 .select-box {
   background-color: #272822;
   border: 2px dashed #999999;
-  height: 25px;
-  width: 100px;
+  height: 50px;
+  width: 200px;
+  color: white;
+  font-family: 'Press Start 2P', cursive, 'DotGothic16', sans-serif;
 }
 
 .new-select {
@@ -390,7 +394,7 @@
 
 .info-show {
   width: 200px;
-  height: 50px;
+  min-height: 50px;
   font-size: 25px;
   color: #999999;
   border: 2px dashed #999999;
@@ -402,7 +406,7 @@
 
 .info-show-kana {
   width: 200px;
-  height: 50px;
+  min-height: 50px;
   font-size: 25px;
   color: #999999;
   border: 2px dashed #999999;
