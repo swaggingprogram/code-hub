@@ -1,0 +1,68 @@
+<div class="user-show-wrapper">
+  <div class="user-info">
+    <div class= "show-header">
+      <h1 class= "show-head-text">
+        <%= @user.nickname %>のマイページ
+      </h1>
+    </div>
+    <div class= "personal-info">
+      <div class="personal-info-box">
+        ユーザー名： <%= @user.nickname %>
+      </div>
+      <div class="introduction">
+      <% if @user.introduction.blank? %>
+        ユーザー編集フォームで<br>自己紹介を記入してください
+      <% else %>
+        <%= @user.introduction %>
+      <% end %>
+      </div>
+    </div>
+    <div class="user-choices">
+      <div class="user-choice">
+        <%= link_to(edit_user_path(@user), class: "edit-btn") do %>
+        <div class="user-button">
+          編集<br>する
+        </div>
+        <% end %>
+        <%= link_to(root_path, class: "show-return") do %>
+        <div class="user-button">
+          戻る
+        </div>
+        <% end %>
+      </div>
+      <div class="user-choice">
+        <div class="user-button">
+        </div>
+        <div class="user-button">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="user-show-right">
+    <div class= "show-header">
+      <h1 class= "show-head-text">
+        <%= @user.nickname %> のコード一覧
+      </h1>
+    </div>
+    <div class="user-records">
+      <% @codes.each do |code| %>
+      <div class="user-record-wrapper">
+        <div class="record-image">
+          <%= link_to(code_path(code.id), class: "record-link") do %>
+          <%= markdown(code.codetext).html_safe %>
+          <% end %>
+        </div>
+        <%= link_to(code_path(code.id), class: "record-link") do %>
+        <div class="record-text">
+          <div class="user-record-title">
+            <%= code.title %>
+          </div>
+          <div class="record-explain">
+          </div>
+        </div>
+        <% end %>
+      </div> 
+      <% end %> 
+    </div>
+  </div>
+</div>

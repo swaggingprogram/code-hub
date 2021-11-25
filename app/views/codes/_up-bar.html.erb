@@ -12,7 +12,7 @@
   </div>
   <div class ="buttons">
     <% if user_signed_in? %>
-    <%= link_to("#", class: "button") do %>
+    <%= link_to(user_path(current_user.id), class: "button") do %>
     <div class="button-left">
       Welcome Back!! <%= current_user.nickname %>!!
     </div>
