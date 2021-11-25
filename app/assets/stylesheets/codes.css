@@ -200,6 +200,7 @@
 
 .new-form {
   width: 50vw;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -209,7 +210,7 @@
 .new-space {
   width: 650px;
   height: 500px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   background-color: #272822;
   border: 2px dashed #999999;
   color: white;
@@ -223,7 +224,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
+  margin-bottom: 10px;
   color: white;
   font-family: 'Press Start 2P', cursive;
 }
@@ -240,7 +241,7 @@
 
 .new-text {
   font-size: 20px;
-  color: white;
+  color: #999999;
   font-family: 'DotGothic16', sans-serif;
   display: block;
   margin-bottom: 10px;
@@ -258,13 +259,17 @@
   border: 2px dashed #999999;
   height: 50px;
   width: 300px;
+  color: white;
+  font-family: 'Press Start 2P', cursive, 'DotGothic16', sans-serif;
 }
 
 .select-box {
   background-color: #272822;
   border: 2px dashed #999999;
-  height: 25px;
-  width: 100px;
+  height: 50px;
+  width: 200px;
+  color: white;
+  font-family: 'Press Start 2P', cursive, 'DotGothic16', sans-serif;
 }
 
 .new-select {
@@ -297,7 +302,7 @@
   background-color: #00303e;
   font-size: 30px;
   color: #999999;
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Press Start 2P', cursive, 'DotGothic16', sans-serif;
 }
 
 .return-btn {
@@ -329,6 +334,14 @@
 
 .category-space {
   display: flex;
+}
+
+.show-head-text {
+  font-size: 30px;
+  text-align: center;
+  color: #999999;
+  font-family: 'Press Start 2P', cursive;
+  padding: 20px 0;
 }
 
 .show-wrapper {
@@ -390,7 +403,7 @@
 
 .info-show {
   width: 200px;
-  height: 50px;
+  min-height: 50px;
   font-size: 25px;
   color: #999999;
   border: 2px dashed #999999;
@@ -402,7 +415,7 @@
 
 .info-show-kana {
   width: 200px;
-  height: 50px;
+  min-height: 50px;
   font-size: 25px;
   color: #999999;
   border: 2px dashed #999999;
