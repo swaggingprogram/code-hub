@@ -28,6 +28,9 @@ https://docs.google.com/spreadsheets/d/14jEp8c0W7AWzwO3IfJczgBzo2wmJBSZMSx6OQl5K
 ・新規投稿およびコメントフォームにマークダウンを実装
 [![Image from Gyazo](https://i.gyazo.com/a353581a9faf0b540a33e84879d19abd.png)](https://gyazo.com/a353581a9faf0b540a33e84879d19abd)
 
+# 現在検討中の追加機能
+要件定義書に記載
+
 # テーブル設計
 
 ## users テーブル
