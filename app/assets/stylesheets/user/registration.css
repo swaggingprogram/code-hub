@@ -58,7 +58,7 @@
 }
 
 .registration-btn {
-  width: 100px;
+  min-width: 100px;
   border: 2px dashed #999999;
   line-height: 48px;
   font-size: 14px;
