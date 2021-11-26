@@ -4,7 +4,9 @@ class CodesController < ApplicationController
   
   def index
     @codes = Code.all.order("created_at DESC")
-  end
+    @histories = History.all
+    @randoms = Code.order("RAND()").limit(1)
+  end    
 
   def new
     @code = Code.new
@@ -44,6 +46,23 @@ class CodesController < ApplicationController
     @code = Code.find(params[:id])
     @comment = Comment.new
     @comments = @code.comments.includes(:user)
+
+    new_history = @code.histories.new
+    new_history.user_id = current_user.id
+
+    if current_user.histories.exists?(code_id: "#{params[:id]}")
+      old_history = current_user.histories.find_by(code_id: "#{params[:id]}")
+      old_history.destroy
+    end
+
+    new_history.save
+
+    histories_stock_limit = 10
+    histories = current_user.histories.all 
+    if histories.count > histories_stock_limit
+      histories[0].destroy
+    end
+
   end
 
   private

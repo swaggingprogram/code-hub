@@ -76,12 +76,67 @@
 }
 
 .right-log{
+  height: 155px;
+  width: 50vw;
+}
+
+.log-title {
+  font-size: 25px;
+  font-family: 'DotGothic16', sans-serif;
+  color: #999999;
   border-bottom: 2px dashed #999999;
-  height: 20%;
+  width: 50vw;
+  height: 35px;
+  padding-left: 10px;
+}
+
+.log-area {
+  width: 50vw;
+  height: 120px;
+  overflow: scroll;
+}
+
+.logs {
+  height: 60px;
+  width: 50vw;
+  color: #999999;
+  border-bottom: 2px dashed #999999;
+  font-size: 30px;
+  padding: 10px 20px 0;
+  font-family: 'DotGothic16', sans-serif;
 }
 
 .right-codes{
-  height: 80%;
+  height: 230px;
+  width: 50vw;
+  border-top: 2px dashed #999999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.random-title {
+  font-size: 25px;
+  color: #999999;
+  font-family: 'Press Start 2P', cursive;
+  width: 50vw;
+  height: 35px;
+  padding: 10px;
+  border-bottom: 2px dashed #999999;
+}
+
+.random-wrapper {
+  width: 95%;
+  height: 95%;
+  background-color: #272822;
+  margin-top: 10px;
+  overflow: scroll;
+  color: #999999;
+}
+
+.random-code {
+  font-size: 15px;
 }
 
 .bot-bar {
