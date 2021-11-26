@@ -5,7 +5,6 @@ class CodesController < ApplicationController
 
   def index
     @codes = Code.all.order("created_at DESC")
-    @histories = History.all
     @randoms = Code.order("RAND()").limit(1)
   end    
 
