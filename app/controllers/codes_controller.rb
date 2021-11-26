@@ -1,7 +1,8 @@
 class CodesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :template, only: [:show, :new]
-  
+  before_action :code_guard, only: [:edit]
+
   def index
     @codes = Code.all.order("created_at DESC")
     @histories = History.all
@@ -72,6 +73,12 @@ class CodesController < ApplicationController
 
   def template
     @template = " ```マークダウンで記入できます\n    \n ```"
+  end
+
+  def code_guard
+    unless @item.user.id == current_user.id
+      redirect_to action: :index 
+    end
   end
 end
 
