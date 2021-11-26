@@ -43,13 +43,6 @@
       最近見たコード一覧
     </div>
     <div class="log-area">
-      <% @histories.zip(@codes) do |history, code| %>
-      <%= link_to(code_path(code.id), class: "code-link") do %>
-      <div class="logs">
-      ・ <%= history.code.title %>
-      </div>
-      <% end %>
-      <% end %>
     </div>
   </div>
   <div class= "right-codes">
@@ -57,14 +50,6 @@
       Random Anonymous Code
     </div>
     <div class=random-wrapper>
-      ※このサイトのコードがランダムで表示されます
-      <% @randoms.zip(@codes) do |random, code| %>
-      <%= link_to(code_path(code.id), class: "code-link") do %>
-      <div class="random-code">
-        <%= markdown(random.codetext).html_safe %>
-      </div>
-      <% end %>
-      <% end %>
     </div>
   </div>
 </div>

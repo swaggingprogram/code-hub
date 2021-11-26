@@ -16,7 +16,4 @@ class Code < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :genre
-
-  has_many :histories, dependent: :destroy
-  
 end
