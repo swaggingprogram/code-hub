@@ -53,6 +53,18 @@
     </div>
   </div>
   <div class= "right-codes">
-   コードの羅列
+    <div class="random-title">
+      Random Anonymous Code
+    </div>
+    <div class=random-wrapper>
+      ※このサイトの誰かのコードがランダムで表示されています
+      <% @randoms.zip(@codes) do |random, code| %>
+      <%= link_to(code_path(code.id), class: "code-link") do %>
+      <div class="random-code">
+        <%= markdown(random.codetext).html_safe %>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
