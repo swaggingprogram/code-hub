@@ -198,6 +198,14 @@
   overflow: hidden;
 }
 
+.new-registration-main {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: scroll;
+}
+
 .new-form {
   width: 50vw;
   min-height: 100vh;

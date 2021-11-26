@@ -1,0 +1,62 @@
+<%= render "shared/header" %>
+<div class="registration-wrapper">
+  <%= form_with model: @user, url: user_path, class: 'registration-main', local: true do |f| %>
+  <div class="registration-main">
+    <div class="edit-left">
+      <div class="form-head">
+        <h1 class="form-head-text">
+          New User Registration
+        </h1>
+      </div>
+  
+      <%= render 'shared/error_messages', model: f.object, locals: {model: @user} %>
+      
+      <div class="form-group">
+        <div class="form-text-wrap">
+          <label class="registration-text">ニックネーム</label>
+        </div>
+        <%= f.text_area :nickname, class:"input-register", id:"nickname", placeholder:"例) programmer", maxlength:"20" %>
+      </div>
+      <div class="form-group">
+        <div class="form-text-wrap">
+          <label class="registration-text">メールアドレス</label>
+        </div>
+        <%= f.text_area :email, class:"input-register", id:"email", placeholder:"例) 〇〇@gmail,com", autofocus: true %>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="registration-text">パスワード</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.password_field :password, class:"input-register", id:"password", placeholder:"6文字以上の半角英数字" %>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="registration-text">パスワード(確認)</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.password_field :password_confirmation, class:"input-register", id:"password-confirmation", placeholder:"同じパスワードを入力して下さい" %>
+      </div>
+      <div class='register-btn'>
+        <%= f.submit "登録情報変更" ,class:"registration-btn" %>
+      </div>
+    </div>
+    <div class="introduction-main">
+      <div class="form-head">
+        <h1 class="form-head-text">
+          自己紹介記入フォーム
+        </h1>
+      </div>
+      <div class= "personal-info">
+        <div class="introduction">
+          <%= f.text_area :introduction, class:"input-introduction", id:"email", placeholder: @introduction, autofocus: true %>
+        </div>
+      </div>
+      <div class='register-btn'>
+        <%= f.submit "登録する" ,class:"introduction-btn" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<%= render "shared/footer" %>
