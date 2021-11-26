@@ -78,7 +78,8 @@ class CodesController < ApplicationController
   end
 
   def code_guard
-    unless @item.user.id == current_user.id
+    @code = Code.find(params[:id])
+    unless @code.user.id == current_user.id
       redirect_to action: :index 
     end
   end
