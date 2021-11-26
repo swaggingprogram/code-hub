@@ -144,7 +144,13 @@
 .code-title {
   width: 700px;
   height: 50px;
+  border-bottom: 2px dashed #999999;
+}
+
+.post-title {
   font-size: 25px;
+  font-family: 'DotGothic16', sans-serif;
+  padding: 10px 20px;
 }
 
 .code-explain {
