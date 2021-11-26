@@ -41,7 +41,6 @@
 .introduction {
   width: 600px;
   min-height: 400px;
-  border: 2px dashed #999999;
   overflow: scroll;
   color: #999999;
   font-size: 25px;

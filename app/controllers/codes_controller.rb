@@ -52,9 +52,7 @@ class CodesController < ApplicationController
   end
 
   def template
-    @template = " ```マークダウンで記入できます
-    
- ```"
+    @template = " ```マークダウンで記入できます\n    \n ```"
   end
 end
 
