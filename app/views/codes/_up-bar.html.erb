@@ -37,8 +37,20 @@
   </div>
 </div>
 <div class= "right-up">
+  
   <div class= "right-log">
-    最近みたコード
+    <div class="log-title">
+      最近見たコード一覧
+    </div>
+    <div class="log-area">
+      <% @histories.zip(@codes) do |history, code| %>
+      <%= link_to(code_path(code.id), class: "code-link") do %>
+      <div class="logs">
+      ・ <%= history.code.title %>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
   </div>
   <div class= "right-codes">
    コードの羅列

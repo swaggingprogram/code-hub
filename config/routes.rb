@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :edit, :update]
+
+  resources :histories, only: :index
 end

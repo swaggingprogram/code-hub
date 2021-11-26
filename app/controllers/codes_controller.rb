@@ -4,7 +4,8 @@ class CodesController < ApplicationController
   
   def index
     @codes = Code.all.order("created_at DESC")
-  end
+    @histories = History.all
+  end    
 
   def new
     @code = Code.new
