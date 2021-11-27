@@ -260,7 +260,7 @@
   overflow: hidden;
 }
 
-.new-registration-main {
+.new-code-main {
   width: 50vw;
   height: 100vh;
   display: flex;
@@ -395,6 +395,40 @@
 .new-right {
   width: 50vw;
   border-left: 2px dashed #999999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preview-head-text {
+  font-size: 30px;
+  text-align: center;
+  color: #999999;
+  font-family: 'Press Start 2P', cursive, 'DotGothic16', sans-serif;
+  padding: 10px 0 20px;
+}
+
+.preview-wrapper {
+  width: 650px;
+  height: 700px;
+  margin-bottom: 30px;
+  background-color: #272822;
+  border: 2px dashed #999999;
+  color: white;
+  font-size: 20px;
+  font-family: 'Roboto Mono', monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-code {
+  width: 90%;
+  height: 90%;
+  background-color: #272822;
+  color: white;
+  font-size: 20px;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .code-space {

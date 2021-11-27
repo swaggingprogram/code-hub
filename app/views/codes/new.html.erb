@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
 <div class= "new-wrapper">
-  <%= form_with model: @code, url: codes_path, class: 'new-registration-main', local: true do |f| %>
+  <%= form_with model: @code, url: codes_path, class: 'new-code-main', local: true do |f| %>
   <div class= "new-form">
     <div class= "new-header">
       <h1 class= "show-head-text">
@@ -8,7 +8,7 @@
       </h1>
     </div>
     <div class="new-code-form">
-      <%= f.text_area :codetext, class:"new-space", value: @template %> 
+      <%= f.text_area :codetext, class:"new-space", id:"new-code", value: @template %> 
     </div>
     <div class="new-choices">
 
@@ -44,6 +44,15 @@
   </div>
   <% end %>
   <div class="new-right">
+    <div class= "new-header">
+      <h1 class= "preview-head-text">
+        Preview Code
+      </h1>
+    </div>
+    <div class="preview-wrapper">
+      <div class="preview-code" id="preview-form">
+      </div>
+    </div>
   </div>
 </div>
 <%= render "shared/footer" %>
