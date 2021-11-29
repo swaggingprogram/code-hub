@@ -6,7 +6,7 @@
         Code
       </h1>
     </div>
-    <div class="code-show">
+    <div class="code-show" id="copied">
       <%= markdown(@code.codetext).html_safe %>
     </div>
     <div class= "show-settings">
@@ -28,7 +28,8 @@
           戻る
         </div>
         <% end %>
-        <div class ="btn">
+        <div class ="clip-btn", data-clipboard-target="#copied", id="clipping">
+          コピー<br>する
         </div>
         <div class ="btn">
         </div>
