@@ -2,6 +2,7 @@ class CodesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :template, only: [:show, :new]
   before_action :code_guard, only: [:edit]
+  before_action :search_code, only: [:index, :search]
 
   def index
     @codes = Code.all.order("created_at DESC")
@@ -48,6 +49,15 @@ class CodesController < ApplicationController
     @comments = @code.comments.includes(:user)
   end
 
+  def search
+    if @q.blank?
+      redirect_to root_path
+    end
+    @codes = @q.result
+    category_id = params[:q][:category_id_eq]
+    @category = Category.find_by(id: category_id)
+  end
+
   private
   def code_params
     params.require(:code).permit(:title, :codetext, :category_id, :genre_id).merge(user_id: current_user.id)
@@ -62,6 +72,10 @@ class CodesController < ApplicationController
     unless @code.user.id == current_user.id
       redirect_to action: :index 
     end
+  end
+
+  def search_code
+    @q = Code.ransack(params[:q])
   end
 end
 
