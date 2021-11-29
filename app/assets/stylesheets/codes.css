@@ -77,7 +77,7 @@
 }
 
 .right-log{
-  height: 155px;
+  height: 140px;
   width: 50vw;
 }
 
@@ -93,7 +93,7 @@
 
 .log-area {
   width: 50vw;
-  height: 120px;
+  height: 100px;
   overflow: scroll;
 }
 
@@ -128,8 +128,8 @@
 }
 
 .random-wrapper {
-  width: 95%;
-  height: 95%;
+  width: 660px;
+  height: 200px;
   background-color: #272822;
   overflow: scroll;
   color: #999999;
