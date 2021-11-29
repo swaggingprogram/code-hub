@@ -50,9 +50,6 @@ class CodesController < ApplicationController
   end
 
   def search
-    if @q.blank?
-      redirect_to root_path
-    end
     @codes = @q.result
     category_id = params[:q][:category_id_eq]
     @category = Category.find_by(id: category_id)
