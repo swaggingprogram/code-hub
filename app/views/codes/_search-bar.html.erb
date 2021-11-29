@@ -49,16 +49,16 @@
   </div>
   <div class= "right-codes">
     <div class="random-title">
-      Random Anonymous Code
+      Your Search Result
     </div>
-    <div class=random-wrapper>
-      ※このサイトのコードがランダムで表示されます
-      <% @randoms.zip(@codes) do |random, code| %>
-      <%= link_to(code_path(code.id), class: "code-link") do %>
-      <div class="random-code">
-        <%= markdown(random.codetext).html_safe %>
+    <div class=result-wrapper>
+      <div class="search-result">
+        検索ワード: <%= params[:q][:title_cont] %>
       </div>
-      <% end %>
+      <% if params[:q][:category_id_eq].present? %>
+      <div class="search-result">
+        カテゴリー: <%= @category.name %>
+      </div>
       <% end %>
     </div>
   </div>
