@@ -51,12 +51,12 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .button-left, .button-right {
   width: 300px;
-  height: 100px;
+  height: 80px;
   border: 2px dashed #999999;
   font-size: 25px;
   color: #999999;
@@ -98,17 +98,17 @@
 }
 
 .logs {
-  height: 60px;
+  height: 40px;
   width: 50vw;
   color: #999999;
   border-bottom: 2px dashed #999999;
-  font-size: 30px;
+  font-size: 20px;
   padding: 10px 20px 0;
   font-family: 'DotGothic16', sans-serif;
 }
 
 .right-codes{
-  height: 230px;
+  height: 200px;
   width: 50vw;
   border-top: 2px dashed #999999;
   display: flex;
@@ -203,7 +203,7 @@
 }
 
 .post-title {
-  font-size: 25px;
+  font-size: 30px;
   font-family: 'DotGothic16', sans-serif;
   padding: 10px 20px;
 }
@@ -211,6 +211,30 @@
 .code-explain {
   width: 700px;
   height: 150px;
+}
+
+.post-owner {
+  width: 500px;
+  height: 50px;
+  margin: 20px;
+  font-size: 25px;
+  color: #999999;
+}
+
+.post-user-link {
+  text-decoration: none;
+  font-family: 'Press Start 2P', cursive, 'DotGothic16', sans-serif;
+  color: #999999;
+}
+
+.post-category {
+  width: 600px;
+  height: 30px;
+  margin: 20px;
+  font-size: 20px;
+  color: #999999;
+  padding-right: 40px;
+  font-family: 'DotGothic16', sans-serif;
 }
 
 .right-bot {
@@ -647,14 +671,14 @@
   background-color: #272822;
   color: #999999;
   line-height: 25px;
-  margin-right: 20px;
   text-align: center;
+  margin: 30px 20px;
 }
 
 .comments-content {
   min-width: 400px;
   min-height: 100px;
-  margin-bottom: 30px;
+  margin: 30px 0;
   border: 2px dashed #999999;
   background-color: #272822;
   color: #999999;

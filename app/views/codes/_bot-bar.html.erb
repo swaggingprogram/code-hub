@@ -13,6 +13,15 @@
           <h2 class="post-title"> <%= code.title %> </h2>
         </div>
         <div class="code-explain">
+          <div class="post-owner">
+            <%= link_to("/users/#{code.user.id}", class: "post-user-link") do %>
+            投稿者名：<%= code.user.nickname %>
+            <% end %>
+          </div>
+          <div class="post-category">
+            <b>☆カテゴリー：</b><%= code.category.name %>
+            <b>☆ジャンル：</b><%= code.genre.name %>
+          </div>
         </div>
       </div>
       <% end %>
