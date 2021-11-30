@@ -3,7 +3,7 @@
   <div class="show-code">
     <div class= "show-header">
       <h1 class= "show-head-text">
-        Code
+        <%= @code.title %>
       </h1>
     </div>
     <div class="code-show" id="copied">
@@ -36,9 +36,11 @@
       </div>
     </div>
     <div class= "show-info">
+       <%= link_to("/users/#{@code.user.id}", class: "show-user-link") do %>
        <div class="info-show">
           <%= @code.user.nickname %>
       </div>
+      <% end %>
       <div class="info-show">
           <%= @code.category.name %>
       </div>
@@ -55,10 +57,18 @@
      <% @comments.each do |comment| %>
      <div class="comments-wrap">
        <div class="comments-name">
-         <%= comment.user.nickname %>
+         <%= image_tag "monkey.png", size:"100x100" %>
        </div>
         <div class="comments-content">
-          <%= markdown(comment.concept).html_safe %>
+          <div class="comment">
+            <%= markdown(comment.concept).html_safe %>
+          </div>
+          <div class="comment-info">
+            <%= link_to("/users/#{@code.user.id}", class:"owner") do %>
+            <%= comment.user.nickname %>
+            <% end %>
+            <%= comment.created_at.strftime('%Y/%m/%d') %>
+          </div>
         </div>
       </div>
       <% end %>
@@ -70,6 +80,9 @@
           <%= f.text_area :concept, class: "comment-content", value: @template %>
           <div class="actions">
             <%= f.submit "送信する", class: "form-btn"  %>
+          <b class="comment-warn">
+            ※コメントは注意して投稿してください。
+          </b>
           </div>
         </div>
       <% end %>
