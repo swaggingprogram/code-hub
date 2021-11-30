@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    resources :histories, only: :index
   end
 
   resources :users, only: [:show, :edit, :update]
