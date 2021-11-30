@@ -42,9 +42,16 @@
   
   <div class= "right-log">
     <div class="log-title">
-      最近見たコード一覧
+      最近見られたコード一覧
     </div>
     <div class="log-area">
+      <% @post_history.each do |post_history| %>
+      <%= link_to(code_path(post_history.id), class: "code-link") do %>
+      <div class="logs">
+      ・ <%= post_history.title %>
+      </div>
+      <% end %>
+      <% end %>
     </div>
   </div>
   <div class= "right-codes">
