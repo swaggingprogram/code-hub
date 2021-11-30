@@ -100,8 +100,8 @@
 }
 
 .record-image {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   overflow: scroll;
   font-size: 15px;
   background-color: #272822;
@@ -114,18 +114,21 @@
 
 .record-text {
   width: 400px;
-  height: 200px;
+  height: 150px;
   border: 2px dashed #999999;
 }
 
 
 .user-record-title {
   width: 400px;
-  height: 50px;
-  font-size: 15px;
+  height: 30px;
+  font-size: 30px;
+  padding: 10px;
+  margin-bottom: 60px;
+  font-family: 'DotGothic16', sans-serif;
 }
 
 .record-explain {
   width: 400px;
-  height: 150px;
+  height: 120px;
 }
