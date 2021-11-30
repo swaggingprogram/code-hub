@@ -476,8 +476,8 @@
 }
 
 .preview-wrapper {
-  width: 650px;
-  height: 700px;
+  width: 700px;
+  height: 550px;
   margin-bottom: 30px;
   background-color: #272822;
   border: 2px dashed #999999;
@@ -490,8 +490,8 @@
 }
 
 .preview-code {
-  width: 90%;
-  height: 90%;
+  width: 650px;
+  height: 500px;
   background-color: #272822;
   color: white;
   font-size: 20px;
@@ -536,7 +536,7 @@
   line-height: 25px;
   margin: 0 auto;
   padding: 10px;
-  background-color: #00303e;
+  background-color: #272822;
   border: 2px dashed #999999;
   color: white;
 }
