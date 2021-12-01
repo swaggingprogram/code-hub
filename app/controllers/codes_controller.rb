@@ -1,5 +1,5 @@
 class CodesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :about, :employ]
   before_action :template, only: [:show, :new]
   before_action :code_guard, only: [:edit]
   before_action :search_code, only: [:index, :search]

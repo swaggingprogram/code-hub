@@ -1,0 +1,67 @@
+.about-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: #00303e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999999;
+}
+
+.about-main {
+  border: 2px dashed #999999;
+  width: 800px;
+  height: 730px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #999999;
+  font-size: 30px; 
+}
+
+.about-title {
+  height: 70px;
+  width: 700px;
+  border: 2px dashed #999999;
+  padding-top: 20px;
+  background-color: #272822;
+  font-family: 'DotGothic16', sans-serif;
+}
+
+.about-form {
+  height: 600px;
+  width: 700px;
+  border: 2px dashed #999999;
+  background-color: #272822;
+  overflow: scroll;
+  padding-left: 20px;
+}
+
+.topic-title {
+  font-family: 'DotGothic16', sans-serif;
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-decoration: underline;
+}
+
+.topic-content {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.topic-parent {
+  font-family: 'DotGothic16', sans-serif;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.topic-child {
+  font-size: 18px;
+  margin-bottom: 20px;
+  list-style: none;
+}
+
+.about-link {
+  color: #999999;
+}

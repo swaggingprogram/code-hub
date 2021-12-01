@@ -1,0 +1,162 @@
+<%= render "shared/header" %>
+<div class= "about-wrapper">
+  <div class= "about-main">
+    <div class= "about-header">
+      <h1 class= "about-title">
+        このサイトについて
+      </h1>
+    </div>
+    <div class="about-form">
+      <div class="topic-block">
+        <h2 class="topic-title">
+          アプリケーション名
+        </h2>
+        <p class="topic-content">
+          Code-hub
+        </p>
+      </div>
+      <div class="topic-block">
+        <h2 class="topic-title">
+          基本情報
+        </h2>
+        <p class="topic-content">
+          当サイトでは自分の学習したコードを記録および共有することができます。
+        </p>
+      </div>
+      <div class="topic-block">
+        <h2 class="topic-title">
+          アプリ作成の背景
+        </h2>
+        <p class="topic-content">
+          本アプリはプログラミング学習中に作者が、勉強した知識や技術を気軽にインプットおよび共有できる
+          媒体が欲しいと感じ、制作されました。
+        </p>
+      </div>
+      <div class="topic-block">
+        <h2 class="topic-title">
+          このサイトでできること
+        </h2>
+        <p class="topic-content">
+          このサイトでは以下の機能を使用することができます。
+        </p>
+        <ul class="topic-parent"> --コード投稿機能--
+          <li class="topic-child">新規投稿機能</li>
+          <li class="topic-child">一覧表示機能</li>
+          <li class="topic-child">詳細表示機能</li>
+          <li class="topic-child">編集機能</li>
+          <li class="topic-child">削除機能</li>
+        </ul>
+        <p class="topic-content">
+          本アプリでは、基礎的な投稿関連機能を実装しております。マークダウン記法およびシンタックスハイライト
+          に対応しているため、投稿したコードを実際のソースコードのように確認することができます。
+        </p>
+        <ul class="topic-parent"> --ユーザー管理機能--
+          <li class="topic-child">新規登録機能</li>
+          <li class="topic-child">ログイン/ログアウト</li>
+          <li class="topic-child">ユーザー情報編集機能</li>
+          <li class="topic-child">ユーザー詳細表示機能</li>
+          <li class="topic-child">削除機能</li>
+        </ul>
+        <p class="topic-content">
+          新規登録はメールアドレス、パスワード、ニックネームを記入することで可能です。又、編集ページにて自分の自己紹介文を
+          記入することができます。ユーザー詳細ページでは、ユーザーの自己紹介が閲覧できるほか、投稿したコードを閲覧することが
+          できます。
+        </p>
+        <ul class="topic-parent"> --コメント機能--
+          <li class="topic-child">コメント投稿機能</li>
+          <li class="topic-child">コメント表示機能</li>
+        </ul>
+        <p class="topic-content">
+          コードの詳細ページにて、そのコードに対するコメントを記入することができます。コメントフォームでもマークダウン記法に
+          対応させているため、コメント欄でもソースコードのようにコードを確認することができます。
+        </p>
+        <ul class="topic-parent"> --その他機能--
+          <li class="topic-child">検索機能(キーワード&カテゴリー)</li>
+          <li class="topic-child">マークダウン記法およびシンタックスハイライト</li>
+          <li class="topic-child">クリップボード機能</li>
+          <li class="topic-child">リアルタイムプレビュー</li>
+          <li class="topic-child">閲覧履歴の表示</li>
+          <li class="topic-child">コードのランダム表示</li>
+        </ul>
+        <p class="topic-content">
+          検索機能やリアルタイムプレビューといった、あると便利に感じる機能を盛り込むことに注力しました。
+          また、閲覧履歴やコードのランダム表示のような動的な機能も実装しました。
+        </p>
+      </div>
+    </div>
+  </div>
+    <div class= "about-main">
+    <div class= "about-header">
+      <h1 class= "about-title">
+        このサイトについて その2
+      </h1>
+    </div>
+    <div class="about-form">
+      <div class="topic-block">
+        <h2 class="topic-title">
+          力を入れた機能
+        </h2>
+        <ul class="topic-parent"> 
+          <li class="topic-child">マークダウン記法</li>
+          <li class="topic-child">シンタックスハイライト</li>
+          <li class="topic-child">クリップボード機能</li>
+          <li class="topic-child">閲覧履歴</li>
+          <li class="topic-child">コードのランダム表示</li>
+        </ul>
+        <p class="topic-content">
+          マークダウン記法や閲覧履歴といったあると便利な機能を盛り込むために、GemのReadmeやQiitaなどの解説文を調べながら、搭載しました。
+        </p>
+      </div>
+      <div class="topic-block">
+        <h2 class="topic-title">
+          苦労した点
+        </h2>
+        <p class="topic-content">
+          Herokuの本番環境でのみ出現するエラーの解決。特にプレコンパイリングやHeroku上でのDB作成時に発生するエラーの原因を特定するのに苦労しました。
+        </p>
+      </div>
+      <div class="topic-block">
+        <h2 class="topic-title">
+          反省点
+        </h2>
+        <p class="topic-content">
+          初めてのオリジナルアプリ制作ということもあり、HTMLやCSSの設計が準備不足だと痛感しました。今後は要件定義およびアプリ設計に、より時間を割くよう
+          にしたいと思います。
+        </p>
+      </div>
+      <div class="topic-block">
+        <h2 class="topic-title">
+          今後の展望
+        </h2>
+        <p class="topic-content">
+          今後はコードのリファクタリングを中心に行う予定です。また新規機能として、SNSアカウントによるログイン、新規投稿時のシンタックスハイライト表示の
+          実装、リッチテキストエディタの実装を行いたいと思っております。
+      </div>
+      <div class="topic-block">
+        <h2 class="topic-title">
+          使用した言語
+        </h2>
+        <ul class="topic-parent"> 
+          <li class="topic-child">HTML/CSS</li>
+          <li class="topic-child">Ruby/Ruby on Rails</li>
+          <li class="topic-child">Javascript</li>
+        </ul>
+        <p class="topic-content">
+          Herokuの本番環境でのみ出現するエラーの解決。特にプレコンパイリングやMySQLの実装時に発生するエラーの原因を特定するのに苦労しました。
+        </p>
+      </div>
+      <div class="topic-block">
+        <h2 class="topic-title">
+          開発環境
+        </h2>
+        <ul class="topic-parent"> 
+          <li class="topic-child">テキストエディタ：Vs Code</li>
+          <li class="topic-child">バージョン管理：Github</li>
+          <li class="topic-child">データベース：MySQL</li>
+          <li class="topic-child">デプロイ管理：Heroku</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "shared/footer" %>

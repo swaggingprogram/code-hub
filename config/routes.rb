@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :comments, only: :create
     collection do
       get 'search'
+      get 'about'
+      get 'employ'
     end
     resources :histories, only: :index
   end

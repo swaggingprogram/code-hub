@@ -1,0 +1,66 @@
+<%= render "shared/header" %>
+<div class= "about-wrapper">
+  <div class= "about-main">
+    <div class= "about-header">
+      <h1 class= "about-title">
+        採用者さまへ
+      </h1>
+    </div>
+    <div class="about-form">
+      <div class="topic-block">
+        <h2 class="topic-title">
+          自己紹介
+        </h2>
+        <p class="topic-content">
+          小倉肇と申します。現在プログラミングを学習中です。
+        </p>
+      </div>
+      <div class="topic-block">
+        <h2 class="topic-title">
+          使える言語および技術
+        </h2>
+        <ul class="topic-parent"> 
+          <li class="topic-child">HTML/CSS</li>
+          <li class="topic-child">Ruby/Ruby on Rails</li>
+          <li class="topic-child">Javascript</li>
+          <li class="topic-child">Github関連</li>
+          <li class="topic-child">MySQL関連</li>
+          <li class="topic-child">Herokuおよび簡単なAWS(ex: S3)</li>
+        </ul>
+      </div>
+      <div class="topic-block">
+        <h2 class="topic-title">
+          今後学びたい&興味のある技術
+        </h2>
+        <ul class="topic-parent"> 
+          <li class="topic-child">PHP</li>
+          <li class="topic-child">Python</li>
+          <li class="topic-child">Javascript</li>
+          <li class="topic-child">AWS関連</li>
+        </ul>
+        <p class="topic-content">
+          今後はphpのような需要の高い言語を習得したいと思っております。また、このアプリの開発中に
+          Javascriptの利便性を痛感したので、フロント実装の幅を広げるためにも、より深く学習していきたいと思います。
+        </p>
+      </div>
+      <div class="topic-block">
+        <h2 class="topic-title">
+          私の強み
+        </h2>
+        <p class="topic-content">
+          私の強みは学習スピードの速さです。プログラミングスクールでは、卒業に必要なカリキュラムを通常より3週間ほど早く
+          終わらせることができました。
+        </p>
+      </div>
+      <div class="topic-block">
+        <h2 class="topic-title">
+          リンクまとめ
+        </h2>
+        <ul class="topic-parent"> 
+          <li class="topic-child"><%= link_to "Githubリンク", "https://github.com/swaggingprogram", class: "about-link" %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "shared/footer" %>

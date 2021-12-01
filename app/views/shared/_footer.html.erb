@@ -1,13 +1,19 @@
 <footer class='hub-fotter'>
   <div class='fotter-text-wrap'>
+    <%= link_to(about_codes_path, class: "footer-link") do %>
     <div class="footer-button">
       このアプリについて
     </div>
+    <% end %>
+    <%= link_to(root_path, class: "footer-link") do %>
     <div class="footer-button">
       CODE-HUB
     </div>
+    <% end %>
+    <%= link_to(employ_codes_path, class: "footer-link") do %>
     <div class="footer-button">
       採用者様へ
     </div>
+    <% end %>
   </div>
 </footer>
