@@ -185,3 +185,42 @@ RSpec.describe 'ツイート削除', type: :system do
     end
   end
 end
+
+RSpec.describe 'ツイート詳細', type: :system do
+  before do
+    @code = FactoryBot.create(:code)
+  end
+  it 'ログインしたユーザーはツイート詳細ページに遷移してコメント投稿欄が表示される' do
+    # ログインする
+    basic_pass root_path
+    visit new_user_session_path
+    fill_in "email", with: @code.user.email
+    fill_in "password", with: @code.user.password
+    find('input[name="commit"]').click
+    expect(current_path).to eq(root_path)
+    # ツイートに「詳細」へのリンクがあることを確認する
+    expect(
+      all(".code-image")[0]).to have_link(nil, href: code_path(@code))
+    # 詳細ページに遷移する
+    visit code_path(@code)
+    # 詳細ページにツイートの内容が含まれている
+    expect(page).to have_content("#{@code.codetext}")
+    expect(page).to have_content("#{@code.title}")
+    # コメント用のフォームが存在する
+    expect(page).to have_selector('.comment-content')
+  end
+  it 'ログインしていない状態でツイート詳細ページに遷移できるもののコメント投稿欄が表示されない' do
+    # トップページに移動する
+    basic_pass root_path
+    # ツイートに「詳細」へのリンクがあることを確認する
+    expect(
+      all(".code-image")[0]).to have_link(nil, href: code_path(@code))
+    # 詳細ページに遷移する
+    visit code_path(@code)
+    # 詳細ページにツイートの内容が含まれている
+    expect(page).to have_content("#{@code.codetext}")
+    expect(page).to have_content("#{@code.title}")
+    # フォームが存在しないことを確認する
+    expect(page).to have_no_selector('.comment-content')
+  end
+end
