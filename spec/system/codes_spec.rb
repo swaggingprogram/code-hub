@@ -133,30 +133,55 @@ end
 
 RSpec.describe 'ツイート削除', type: :system do
   before do
-    @tweet1 = FactoryBot.create(:tweet)
-    @tweet2 = FactoryBot.create(:tweet)
+    @code1 = FactoryBot.create(:code)
+    @code2 = FactoryBot.create(:code)
   end
   context 'ツイート削除ができるとき' do
     it 'ログインしたユーザーは自らが投稿したツイートの削除ができる' do
       # ツイート1を投稿したユーザーでログインする
+      basic_pass root_path
+      visit new_user_session_path
+      fill_in "email", with: @code1.user.email
+      fill_in "password", with: @code1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+      # ツイート1の詳細に遷移する
+      visit code_path(@code1)
       # ツイート1に「削除」へのリンクがあることを確認する
+      expect(page).to have_link '削除', href: code_path(@code1)
       # 投稿を削除するとレコードの数が1減ることを確認する
-      # 削除完了画面に遷移したことを確認する
-      # 「削除が完了しました」の文字があることを確認する
+      expect{
+        find_link("削除", href: code_path(@code1)).click
+      }.to change { Code.count }.by(-1)
       # トップページに遷移する
+      expect(current_path).to eq(root_path)
       # トップページにはツイート1の内容が存在しないことを確認する（画像）
+      expect(page).to have_no_content("#{@code1.title}")
       # トップページにはツイート1の内容が存在しないことを確認する（テキスト）
+      expect(page).to have_no_content("#{@code1.codetext}")
     end
   end
   context 'ツイート削除ができないとき' do
     it 'ログインしたユーザーは自分以外が投稿したツイートの削除ができない' do
       # ツイート1を投稿したユーザーでログインする
+      basic_pass root_path
+      visit new_user_session_path
+      fill_in "email", with: @code1.user.email
+      fill_in "password", with: @code1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+      # ツイート2の詳細に遷移する
+      visit code_path(@code2)
       # ツイート2に「削除」へのリンクがないことを確認する
+      expect(page).to have_no_link '削除', href: code_path(@code2)
     end
     it 'ログインしていないとツイートの削除ボタンがない' do
       # トップページに移動する
+      basic_pass root_path
       # ツイート1に「削除」へのリンクがないことを確認する
+      expect(page).to have_no_link '削除', href: code_path(@code1)
       # ツイート2に「削除」へのリンクがないことを確認する
+      expect(page).to have_no_link '削除', href: code_path(@code2)
     end
   end
 end
