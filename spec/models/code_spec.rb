@@ -42,6 +42,11 @@ RSpec.describe Code, type: :model do
         @code.valid?
         expect(@code.errors.full_messages).to include("Genre can't be blank")
       end
+      it 'ユーザーに紐づいてないと出品できない' do
+        @code.user = nil
+        @code.valid?
+        expect(@code.errors.full_messages).to include('User must exist')
+      end
     end
   end
 end
