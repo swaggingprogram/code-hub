@@ -94,7 +94,12 @@
   width: 50vw;
   height: 100px;
   overflow: scroll;
+  -ms-overflow-style: none;
 }
+
+.log-area::-webkit-scrollbar {
+  display:none;
+ }
 
 .logs {
   height: 40px;
@@ -132,7 +137,12 @@
   background-color: #272822;
   overflow: scroll;
   color: #999999;
+  -ms-overflow-style: none;
 }
+
+.random-wrapper::-webkit-scrollbar {
+  display:none;
+ }
 
 .random-code {
   font-size: 15px;
@@ -182,7 +192,12 @@
   padding-left: 10px;
   background-color: #272822;
   color: white;
+  -ms-overflow-style: none;
 }
+
+.code-image::-webkit-scrollbar {
+  display:none;
+ }
 
 .code-link {
   text-decoration: none;
@@ -356,7 +371,12 @@
   display: flex;
   align-items: center;
   overflow: scroll;
+  -ms-overflow-style: none;
 }
+
+.new-code-main::-webkit-scrollbar {
+  display:none;
+ }
 
 .new-form {
   width: 50vw;
@@ -562,7 +582,12 @@
   background-color: #272822;
   border: 2px dashed #999999;
   color: white;
+  -ms-overflow-style: none;
 }
+
+.code-show::-webkit-scrollbar {
+  display:none;
+ }
 
 .show-buttons {
   display: flex;
@@ -658,8 +683,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  -ms-overflow-style: none;
 }
 
+.comment-area::-webkit-scrollbar {
+  display:none;
+ }
+ 
 .comments-wrap {
   display: flex;
 }

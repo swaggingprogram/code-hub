@@ -25,7 +25,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  -ms-overflow-style: none;
 }
+
+.personal-info::-webkit-scrollbar {
+  display:none;
+ }
+ 
 
 .personal-info-box {
   width: 400px;
@@ -45,7 +51,12 @@
   color: #999999;
   font-size: 25px;
   font-family: 'Press Start 2P', cursive, 'DotGothic16', sans-serif;
+  -ms-overflow-style: none;
 }
+
+.introduction::-webkit-scrollbar {
+  display:none;
+ }
 
 .user-choices {
   width: 700px;
@@ -87,7 +98,12 @@
   height: 800px;
   overflow: scroll;
   border-top: 2px dashed #999999;
+  -ms-overflow-style: none;
 }
+
+.user-records::-webkit-scrollbar {
+  display:none;
+ }
 
 .user-record-wrapper {
   width: 600px;
@@ -105,7 +121,13 @@
   overflow: scroll;
   font-size: 15px;
   background-color: #272822;
+  -ms-overflow-style: none;
 }
+
+.record-image::-webkit-scrollbar {
+  display:none;
+ }
+ 
 .record-link {
   text-decoration: none;
   color: #999999;

@@ -36,6 +36,11 @@
   background-color: #272822;
   overflow: scroll;
   padding-left: 20px;
+  -ms-overflow-style: none;
+}
+
+.about-form::-webkit-scrollbar {
+  display:none;
 }
 
 .topic-title {
