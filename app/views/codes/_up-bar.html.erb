@@ -5,8 +5,8 @@
   </div>
   <% end %>
   <div class= "texts">
-    <div class="used-program">
-      このwebサービスは<br>HTML/CSS, Ruby on Rails, javascriptで作られています
+    <div class="used-program">
+      このwebサービスは <br>HTML/CSS, Ruby on Rails, javascriptで作られています
     </div>
     <div class="author-info">
       Produced by Hajime Ogura
@@ -60,8 +60,8 @@
     </div>
     <div class=random-wrapper>
       ※このサイトのコードがランダムで表示されます
-      <% @randoms.zip(@codes) do |random, code| %>
-      <%= link_to(code_path(code.id), class: "code-link") do %>
+      <% @randoms.each do |random| %>
+      <%= link_to(code_path(random.id), class: "code-link") do %>
       <div class="random-code">
         <%= markdown(random.codetext).html_safe %>
       </div>
