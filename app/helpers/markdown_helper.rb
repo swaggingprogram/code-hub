@@ -7,18 +7,18 @@ end
 module MarkdownHelper
   def markdown(text)
     options = {
-      no_images:     true,
-      no_styles:     true,
+      no_images: true,
+      no_styles: true,
       with_toc_data: true,
-      hard_wrap:     true
+      hard_wrap: true
     }
 
     extensions = {
-      no_intra_emphasis:   true,
-      tables:              true,
-      fenced_code_blocks:  true,
-      autolink:            true,
-      lax_spacing:         true,
+      no_intra_emphasis: true,
+      tables: true,
+      fenced_code_blocks: true,
+      autolink: true,
+      lax_spacing: true,
       space_after_headers: true
     }
 

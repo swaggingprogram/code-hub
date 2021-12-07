@@ -8,7 +8,7 @@ class Category < ActiveHash::Base
     { id: 6, name: 'Python' },
     { id: 7, name: 'PHP' },
     { id: 8, name: 'その他の話題' },
-    { id: 9, name: '日記・ブログ' },
+    { id: 9, name: '日記・ブログ' }
   ]
 
   include ActiveHash::Associations

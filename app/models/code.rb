@@ -3,7 +3,7 @@ class Code < ApplicationRecord
   validates :codetext, presence: true, unless: :was_attached?
 
   def was_attached?
-    self.image.attached?
+    image.attached?
   end
 
   validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
@@ -12,7 +12,7 @@ class Code < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_one_attached :image
-  
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :genre

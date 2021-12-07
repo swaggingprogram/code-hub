@@ -12,12 +12,13 @@ class UsersController < ApplicationController
   def update
     if current_user.update(user_params)
       redirect_to user_path(current_user.id)
-    else 
+    else
       render :edit
     end
   end
 
   private
+
   def introduction
     @introduction = "例：現在プログラミングを学習中の社会人\n得意言語：Ruby,HTML/CSS,JavaScript\nひとこと：毎日頑張って書いています"
   end

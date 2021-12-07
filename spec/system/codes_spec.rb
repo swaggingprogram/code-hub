@@ -1,22 +1,22 @@
 require 'rails_helper'
 
 def basic_pass(path)
-  username = ENV["BASIC_AUTH_USER"] 
-  password = ENV["BASIC_AUTH_PASSWORD"]
+  username = ENV['BASIC_AUTH_USER']
+  password = ENV['BASIC_AUTH_PASSWORD']
   visit "http://#{username}:#{password}@#{Capybara.current_session.server.host}:#{Capybara.current_session.server.port}#{path}"
 end
 
-RSpec.describe "Codes", type: :system do
+RSpec.describe 'Codes', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @code_title = Faker::Name.initials(number: 6)
     @code_text = Faker::Lorem.sentence
-    @code_category = "Ruby"
-    @code_genre = "初心者向け"
+    @code_category = 'Ruby'
+    @code_genre = '初心者向け'
   end
-  context 'コードの投稿ができるとき'do
+  context 'コードの投稿ができるとき' do
     it 'ログインしたユーザーは新規投稿できる' do
-      #basic認証を突破する
+      # basic認証を突破する
       basic_pass root_path
       # ログインする
       visit new_user_session_path
@@ -30,12 +30,12 @@ RSpec.describe "Codes", type: :system do
       # フォームに情報を入力する
       fill_in 'new-code', with: @code_text
       fill_in 'code_title', with: @code_title
-      select @code_category, from: "code[category_id]"
-      select @code_genre, from: "code[genre_id]"
+      select @code_category, from: 'code[category_id]'
+      select @code_genre, from: 'code[genre_id]'
       # 送信するとTweetモデルのカウントが1上がることを確認する
-      expect{
+      expect do
         find('input[name="commit"]').click
-      }.to change { Code.count }.by(1)
+      end.to change { Code.count }.by(1)
       # 投稿完了ページに遷移することを確認する
       expect(current_path).to eq(root_path)
       # トップページには先ほど投稿した内容のツイートが存在することを確認する（タイトル)
@@ -44,7 +44,7 @@ RSpec.describe "Codes", type: :system do
       expect(page).to have_content(@code_text)
     end
   end
-  context 'ツイート投稿ができないとき'do
+  context 'ツイート投稿ができないとき' do
     it 'ログインしていないと新規投稿ページに遷移できない' do
       # トップページに遷移する
       basic_pass root_path
@@ -64,8 +64,8 @@ RSpec.describe 'ツイート編集', type: :system do
       # ツイート1を投稿したユーザーでログインする
       basic_pass root_path
       visit new_user_session_path
-      fill_in "email", with: @code1.user.email
-      fill_in "password", with: @code1.user.password
+      fill_in 'email', with: @code1.user.email
+      fill_in 'password', with: @code1.user.password
       find('input[name="commit"]').click
       expect(current_path).to eq(root_path)
       # ツイート1の詳細に遷移する
@@ -83,19 +83,19 @@ RSpec.describe 'ツイート編集', type: :system do
       ).to eq(@code1.title)
       expect(
         find_by_id('code_category_id').value
-      ).to eq("#{@code1.category_id}")
+      ).to eq(@code1.category_id.to_s)
       expect(
         find_by_id('code_genre_id').value
-      ).to eq("#{@code1.genre_id}")
+      ).to eq(@code1.genre_id.to_s)
       # 投稿内容を編集する
-      fill_in "code", with: "#{@code1.codetext}"
-      fill_in "code_title", with: "#{@code1.title}"
-      select Category.data[@code1.category_id - 1][:name], from: "code[category_id]"
-      select Genre.data[@code1.genre_id - 1][:name], from: "code[genre_id]"
+      fill_in 'code', with: @code1.codetext.to_s
+      fill_in 'code_title', with: @code1.title.to_s
+      select Category.data[@code1.category_id - 1][:name], from: 'code[category_id]'
+      select Genre.data[@code1.genre_id - 1][:name], from: 'code[genre_id]'
       # 編集してもTweetモデルのカウントは変わらないことを確認する
-      expect{
+      expect do
         find('input[name="commit"]').click
-      }.to change { Code.count }.by(0)
+      end.to change { Code.count }.by(0)
       # トップページに遷移する
       expect(current_path).to eq(root_path)
       # トップページには先ほど変更した内容のツイートが存在することを確認する（タイトル）
@@ -109,8 +109,8 @@ RSpec.describe 'ツイート編集', type: :system do
       # ツイート1を投稿したユーザーでログインする
       basic_pass root_path
       visit new_user_session_path
-      fill_in "email", with: @code1.user.email
-      fill_in "password", with: @code1.user.password
+      fill_in 'email', with: @code1.user.email
+      fill_in 'password', with: @code1.user.password
       find('input[name="commit"]').click
       expect(current_path).to eq(root_path)
       # ツイート2の詳細に遷移する
@@ -141,8 +141,8 @@ RSpec.describe 'ツイート削除', type: :system do
       # ツイート1を投稿したユーザーでログインする
       basic_pass root_path
       visit new_user_session_path
-      fill_in "email", with: @code1.user.email
-      fill_in "password", with: @code1.user.password
+      fill_in 'email', with: @code1.user.email
+      fill_in 'password', with: @code1.user.password
       find('input[name="commit"]').click
       expect(current_path).to eq(root_path)
       # ツイート1の詳細に遷移する
@@ -150,15 +150,15 @@ RSpec.describe 'ツイート削除', type: :system do
       # ツイート1に「削除」へのリンクがあることを確認する
       expect(page).to have_link '削除', href: code_path(@code1)
       # 投稿を削除するとレコードの数が1減ることを確認する
-      expect{
-        find_link("削除", href: code_path(@code1)).click
-      }.to change { Code.count }.by(-1)
+      expect do
+        find_link('削除', href: code_path(@code1)).click
+      end.to change { Code.count }.by(-1)
       # トップページに遷移する
       expect(current_path).to eq(root_path)
       # トップページにはツイート1の内容が存在しないことを確認する（画像）
-      expect(page).to have_no_content("#{@code1.title}")
+      expect(page).to have_no_content(@code1.title.to_s)
       # トップページにはツイート1の内容が存在しないことを確認する（テキスト）
-      expect(page).to have_no_content("#{@code1.codetext}")
+      expect(page).to have_no_content(@code1.codetext.to_s)
     end
   end
   context 'ツイート削除ができないとき' do
@@ -166,8 +166,8 @@ RSpec.describe 'ツイート削除', type: :system do
       # ツイート1を投稿したユーザーでログインする
       basic_pass root_path
       visit new_user_session_path
-      fill_in "email", with: @code1.user.email
-      fill_in "password", with: @code1.user.password
+      fill_in 'email', with: @code1.user.email
+      fill_in 'password', with: @code1.user.password
       find('input[name="commit"]').click
       expect(current_path).to eq(root_path)
       # ツイート2の詳細に遷移する
@@ -194,18 +194,19 @@ RSpec.describe 'ツイート詳細', type: :system do
     # ログインする
     basic_pass root_path
     visit new_user_session_path
-    fill_in "email", with: @code.user.email
-    fill_in "password", with: @code.user.password
+    fill_in 'email', with: @code.user.email
+    fill_in 'password', with: @code.user.password
     find('input[name="commit"]').click
     expect(current_path).to eq(root_path)
     # ツイートに「詳細」へのリンクがあることを確認する
     expect(
-      all(".code-image")[0]).to have_link(nil, href: code_path(@code))
+      all('.code-image')[0]
+    ).to have_link(nil, href: code_path(@code))
     # 詳細ページに遷移する
     visit code_path(@code)
     # 詳細ページにツイートの内容が含まれている
-    expect(page).to have_content("#{@code.codetext}")
-    expect(page).to have_content("#{@code.title}")
+    expect(page).to have_content(@code.codetext.to_s)
+    expect(page).to have_content(@code.title.to_s)
     # コメント用のフォームが存在する
     expect(page).to have_selector('.comment-content')
   end
@@ -214,12 +215,13 @@ RSpec.describe 'ツイート詳細', type: :system do
     basic_pass root_path
     # ツイートに「詳細」へのリンクがあることを確認する
     expect(
-      all(".code-image")[0]).to have_link(nil, href: code_path(@code))
+      all('.code-image')[0]
+    ).to have_link(nil, href: code_path(@code))
     # 詳細ページに遷移する
     visit code_path(@code)
     # 詳細ページにツイートの内容が含まれている
-    expect(page).to have_content("#{@code.codetext}")
-    expect(page).to have_content("#{@code.title}")
+    expect(page).to have_content(@code.codetext.to_s)
+    expect(page).to have_content(@code.title.to_s)
     # フォームが存在しないことを確認する
     expect(page).to have_no_selector('.comment-content')
   end
