@@ -73,11 +73,13 @@
   width: 50%;
   height: 100%;
   border-left: 2px dashed #999999;
+  background-color: #272822;
 }
 
 .right-log{
   height: 140px;
   width: 50vw;
+  background-color: #00303e;
 }
 
 .log-title {
@@ -112,12 +114,12 @@
 }
 
 .right-codes{
-  
   border-top: 2px dashed #999999;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #272822;
 }
 
 .random-title {
@@ -127,6 +129,7 @@
   font-family: 'Press Start 2P', cursive;
   padding: 10px;
   border-bottom: 2px dashed #999999;
+  background-color: #00303e;
 }
 
 .random-wrapper {
@@ -317,8 +320,8 @@
 }
 
 .result-wrapper {
-  width: 660px;
-  height: 200px;
+  width: 50vw;
+  height: 180px;
   background-color: #272822;
   display: flex;
   flex-direction: column;
@@ -635,43 +638,29 @@
 }
 
 .show-info {
-  margin-top: 30px;
   width: 700px;
   height: 100px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-top: 20px;
 }
 
 .info-show {
   width: 200px;
-  min-height: 50px;
-  border: 2px dashed #999999;
-  font-family: 'Press Start 2P', cursive;
+  height: 50px;
+  font-family: 'Press Start 2P', cursive, 'DotGothic16', sans-serif;
   color: #999999;
   font-size: 25px;
   text-align: center;
   font-weight: bolder;
-  padding-top: 10px;
+  line-height: 40px;
 }
 
 .show-user-link {
   font-size: 25px;
   color: #999999;
   font-family: 'Press Start 2P', cursive, 'DotGothic16', sans-serif;
-  text-decoration: none;
-}
-
-.info-show-kana {
-  width: 200px;
-  min-height: 50px;
-  font-size: 25px;
-  color: #999999;
-  border: 2px dashed #999999;
-  text-align: center;
-  font-family: 'DotGothic16', sans-serif;
-  font-weight: bolder;
-  padding-top: 10px;
 }
 
 .show-comment {
@@ -686,7 +675,7 @@
 .comment-area {
   border: 2px dashed #999999;
   width: 700px;
-  height: 400px;
+  height: 450px;
   margin-bottom: 40px;
   background-color: #272822;
   overflow: scroll;

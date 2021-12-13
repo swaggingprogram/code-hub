@@ -36,16 +36,16 @@
       </div>
     </div>
     <div class= "show-info">
-       <%= link_to("/users/#{@code.user.id}", class: "show-user-link") do %>
-       <div class="info-show">
-          <%= @code.user.nickname %>
+      <%= link_to("/users/#{@code.user.id}", class: "show-user-link") do %>
+      <div class="info-show">
+        投稿者名<br><%= @code.user.nickname %>
       </div>
       <% end %>
       <div class="info-show">
-          <%= @code.category.name %>
+        カテゴリー<br><%= @code.category.name %>
       </div>
-      <div class="info-show-kana">
-          <%= @code.genre.name %>
+      <div class="info-show">
+       ジャンル<br><%= @code.genre.name %>
       </div>
     </div>  
   </div>
