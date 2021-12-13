@@ -11,9 +11,7 @@
       <%= f.text_area :codetext, class:"new-space", id:"new-code", value: @template %> 
     </div>
     <div class="new-choices">
-
-        <%= render 'shared/error_messages', model: f.object, locals: {model: @code} %>
-
+      <%= render 'shared/error_messages', model: f.object, locals: {model: @code} %>
       <div class="new-categories">
         <div class="new-title">
           <label class="new-text">タイトル</label>
@@ -52,6 +50,8 @@
     <div class="preview-wrapper">
       <div class="preview-code" id="preview-form">
       </div>
+    </div>
+    <div class="hidden-box">
     </div>
   </div>
 </div>
